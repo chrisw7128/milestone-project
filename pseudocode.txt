@@ -1,0 +1,25 @@
+OBJECTIVE:
+Create a heads-up no-limit hold 'em poker game.
+
+GAME DESCRIPTION:
+The game two-player and is turn-based.
+Initially, each player is dealt two cards, each player has a turn. If noone folds, the game continues.
+Next, a 3-card flop is dealt.  Each player has another turn.  If noone folds, the game continues.
+Next, a 1-card turn is dealt.  Each player has another turn.  If noone folds, the game continues.
+Finally, a 1-card river is dealt.  Each player has another turn.  If noone folds, the two players' hands are compared, and the strongest hand wins.
+Whoever wins the hand wins the chips that were bet in the hand, and the loser loses the same corresponding number of chips.
+
+GAME REQUIREMENTS:
+1) The game requires each player to be dealt two random (unique) cards, from a deck of 52-cards.
+If/when the flop/turn/river are dealt, those cards need to be unique also, so the game needs to have some form of state.
+The game needs to 'remember' which cards have previously been dealt during the hand.
+
+2) After each hand, the 'state' of dealt cards should be reset before the next hand.
+Some persistent state needs to be maintained though -- this time remembering how many chips each of the two players has won/lost.
+
+3) The game needs various action buttons specific to poker (raise, fold, call, bet, check ,etc).
+
+STEPS:
+1) Use a RNG to deal each of the two players two (unique) cards from a deck of cards.
+2) Allow each player to 'act', from the list of actions in step 3 in 'game requirements'.
+
