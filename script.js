@@ -45,9 +45,6 @@ function randomCard(cards) {
     cardValue +
     entity +
     "</span>" +
-    '<span class="card-suit">' +
-    entity +
-    "</span>" +
     '<span class="card-value-suit bot">' +
     cardValue +
     entity +
@@ -55,4 +52,5 @@ function randomCard(cards) {
   document.body.appendChild(card);
 }
 
+randomCard(cards);
 randomCard(cards);
