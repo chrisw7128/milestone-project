@@ -83,9 +83,24 @@ function p1Preflop() {
   }
 }
 
+function showFlop() {
+  let card1 = document.getElementById("card1");
+  let card2 = document.getElementById("card2");
+  let card3 = document.getElementById("card3");
+  card1.style.visibility = "visible";
+  card2.style.visibility = "visible";
+  card3.style.visibility = "visible";
+}
+
 async function runFunctions() {
   await p2Preflop();
   setTimeout(p1Preflop, 500);
+  if ((PLAYER1.stack = PLAYER2.stack + 2)) {
+    runFunctions();
+  } else {
+    // deal flop
+    showFlop();
+  }
 }
 
 runFunctions();
