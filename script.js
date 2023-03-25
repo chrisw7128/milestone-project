@@ -1,7 +1,8 @@
 // RNG that deals cards:
 
-let PLAYER1 = { name: "fatmast", stack: 100 };
-let PLAYER2 = { name: "shuzzza", stack: 100 };
+let PLAYER1 = { name: "fatmast", stack: 100, bet: 2 };
+let PLAYER2 = { name: "shuzzza", stack: 100, bet: 1 };
+let POT = 0;
 
 function deckBuilder() {
   const values = [
@@ -57,20 +58,25 @@ function randomCard(cards, div) {
   return { value: cardValue, suit: cardSuit };
 }
 
-let raiseButton = document.getElementById("raiseButton");
-raiseButton.addEventListener("click", function () {
-  PLAYER1.stack = PLAYER1.stack + 1;
-  let p1stack = document.getElementById("player1stack");
-  let p2stack = document.getElementById("player2stack");
-  p1stack.textContent = PLAYER1.stack;
-  p2stack.textContent = PLAYER2.stack;
-  console.log(PLAYER1.stack);
-});
+// let raiseButton = document.getElementById("raiseButton");
+// raiseButton.addEventListener("click", function () {
+//   PLAYER1.stack = PLAYER1.stack + 1;
+//   let p1stack = document.getElementById("player1stack");
+//   let p2stack = document.getElementById("player2stack");
+//   p1stack.textContent = PLAYER1.stack;
+//   p2stack.textContent = PLAYER2.stack;
+//   console.log(PLAYER1.stack);
+// });
 
 let p1stack = document.getElementById("player1stack");
 let p2stack = document.getElementById("player2stack");
 p1stack.textContent = PLAYER1.stack;
 p2stack.textContent = PLAYER2.stack;
+
+let p1Bet = document.getElementById("p1Bet");
+let p2Bet = document.getElementById("p2Bet");
+p1Bet.textContent = PLAYER1.bet;
+p2Bet.textContent = PLAYER2.bet;
 
 let playerOneFirstCard = randomCard(cards, "player1first");
 console.log(playerOneFirstCard);

@@ -53,3 +53,28 @@
 .board {
   display: flex;
 }
+
+.stacks {
+  font-size: 30px;
+}
+
+.board {
+  display: none;
+}
+
+.bet {
+  font-size: 30px;
+}
+
+.playernum {
+  display: inline-block;
+}
+
+#p1Bet, #p2Bet {
+  display: inline-block;
+}
+
+#player1first, #player1second {
+  color: green;
+  background-color: green;
+}

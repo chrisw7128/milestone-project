@@ -9,18 +9,15 @@
 </head>
 <body>
 
+    <div class="stacks">
+        <div id=player1stack></div>
+    </div>
 
     <div id=parentdivplayer1>
         <div id=player1>
             <div id=player1first></div>
             <div id=player1second></div>
         </div>
-    </div>
-
-    <div id="actions">
-        <button type="button" id=raiseButton>Raise</button>
-        <button type="button" id=callButton>Call</button>
-        <button type="button" id=foldButton>Fold</button>
     </div>
 
     <div id=board class="board">
@@ -35,7 +32,22 @@
         <div id=river>
             <div id=card5></div>
         </div>
+    </div>
 
+    <div class=bet>
+        <div class=playernum>Computer:
+            <div id=p1Bet></div>
+        </div>
+    </div>
+
+    <div class=pot>
+        <div id=potsize></div>
+    </div>
+
+    <div class=bet>
+        <div>Hero: 
+            <div id=p2Bet></div>
+        </div>
     </div>
 
     <div id=parentdivplayer2>
@@ -45,12 +57,18 @@
         </div>
     </div>
 
+    <div id="actions">
+        <button type="button" id=raiseButton>Raise</button>
+        <button type="button" id=callButton>Call</button>
+        <button type="button" id=foldButton>Fold</button>
+    </div>
+
     <div class="stacks">
-        <div id=player1stack></div>
         <div id=player2stack></div>
     </div>
 
 
     <script src="script.js"></script>
+    <script src="actions.js"></script>
 </body>
 </html>
