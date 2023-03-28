@@ -58,7 +58,7 @@
   font-size: 30px;
 }
 
-.board {
+#card1, #card2, #card3, #card4, #card5 {
   display: none;
 }
 

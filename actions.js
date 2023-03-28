@@ -55,7 +55,7 @@ function rngVsCall() {
   return outcomes[randomIndex];
 }
 
-function p1Preflop() {
+async function p1Preflop() {
   if (PLAYER2.bet == 4) {
     p1Action = rngVsRaise();
     if (p1Action == "raise") {
@@ -87,20 +87,24 @@ function showFlop() {
   let card1 = document.getElementById("card1");
   let card2 = document.getElementById("card2");
   let card3 = document.getElementById("card3");
-  card1.style.visibility = "visible";
-  card2.style.visibility = "visible";
-  card3.style.visibility = "visible";
+  card1.style.display = "inline-block";
+  card2.style.display = "inline-block";
+  card3.style.display = "inline-block";
 }
 
-async function runFunctions() {
-  await p2Preflop();
-  setTimeout(p1Preflop, 500);
-  if ((PLAYER1.stack = PLAYER2.stack + 2)) {
+async function checkState() {
+  if (PLAYER1.stack === PLAYER2.stack + 2) {
     runFunctions();
   } else {
     // deal flop
     showFlop();
   }
+}
+
+async function runFunctions() {
+  await p2Preflop();
+  setTimeout(p1Preflop, 500);
+  setTimeout(checkState, 750);
 }
 
 runFunctions();
