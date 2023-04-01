@@ -1,7 +1,7 @@
 // RNG that deals cards:
 
-let PLAYER1 = { name: "fatmast", stack: 100, bet: 2 };
-let PLAYER2 = { name: "shuzzza", stack: 100, bet: 1 };
+let PLAYER1 = { name: "fatmast", stack: 100, bet: 2, hand: [] };
+let PLAYER2 = { name: "shuzzza", stack: 100, bet: 1, hand: [] };
 let POT = 0;
 let PLAYERS = { COMP: PLAYER1, HERO: PLAYER2 };
 let PLAYERNAMES = ["COMP", "HERO"];
@@ -56,9 +56,12 @@ function clearCards() {
 }
 function setUp() {
   clearCards();
+  hideVillainCards();
   hideFlop();
   PLAYER1.bet = 2;
+  PLAYER1.stack -= 2;
   PLAYER2.bet = 1;
+  PLAYER2.stack -= 1;
   POT = 0;
   updatePot(PLAYER1.bet + PLAYER2.bet);
 
@@ -78,9 +81,13 @@ function setUp() {
   let playerOneFirstCard = randomCard(deck, "player1first");
   console.log(playerOneFirstCard);
   let playerOneSecondCard = randomCard(deck, "player1second");
+  PLAYER1.hand[0] = playerOneFirstCard;
+  PLAYER1.hand[1] = playerOneSecondCard;
 
   let playerTwoFirstCard = randomCard(deck, "player2first");
   let playerTwoSecondCard = randomCard(deck, "player2second");
+  PLAYER2.hand[0] = playerTwoFirstCard;
+  PLAYER2.hand[1] = playerTwoSecondCard;
 
   let card1 = randomCard(deck, "card1");
   let card2 = randomCard(deck, "card2");
@@ -150,6 +157,7 @@ async function p2Preflop() {
     function raiseAction() {
       // Do something when the raise button is clicked
       PLAYER2.bet = 4;
+      PLAYER2.stack -= 3;
       p2Bet.textContent = PLAYER2.bet;
       updatePot(3);
       // End the user's turn
@@ -160,6 +168,7 @@ async function p2Preflop() {
       // Do something when the call button is clicked
       let callAmount = PLAYER1.bet - PLAYER2.bet;
       PLAYER2.bet = 2;
+      PLAYER2.stack -= callAmount;
       p2Bet.textContent = PLAYER2.bet;
       updatePot(callAmount);
       // End the user's turn
@@ -206,11 +215,13 @@ async function p1Preflop() {
     p1Action = rngVsRaise();
     if (p1Action == "raise") {
       PLAYER1.bet = PLAYER2.bet + 2;
+      PLAYER1.stack -= 2;
       p1Bet.textContent = PLAYER1.bet;
       updatePot(2);
     } else if (p1Action == "call") {
       let callAmount = PLAYER2.bet - PLAYER1.bet;
       PLAYER1.bet = PLAYER2.bet;
+      PLAYER1.stack -= callAmount;
       p1Bet.textContent = PLAYER1.bet;
       updatePot(callAmount);
     } else if (p1Action == "fold") {
@@ -227,6 +238,7 @@ async function p1Preflop() {
     p1Action = rngVsCall();
     if (p1Action == "raise") {
       PLAYER1.bet = PLAYER2.bet + 2;
+      PLAYER1.stack -= 2;
       p1Bet.textContent = PLAYER1.bet;
     } else if (p1Action == "check") {
       PLAYER1.bet = PLAYER2.bet;
@@ -259,6 +271,7 @@ async function checkState() {
   } else {
     // deal flop
     showFlop();
+    compareHands();
   }
 }
 
@@ -271,6 +284,74 @@ async function runFunctions() {
 
 function nextHand() {
   runFunctions();
+}
+
+function revealVillainCards() {
+  revealCard1 = document.getElementById("player1first");
+  revealCard2 = document.getElementById("player1second");
+  revealCard1.style.backgroundColor = "white";
+  revealCard2.style.backgroundColor = "white";
+  revealCard1.style.color = "";
+  revealCard2.style.color = "";
+}
+
+function hideVillainCards() {
+  hideCard1 = document.getElementById("player1first");
+  hideCard2 = document.getElementById("player1second");
+  hideCard1.style.backgroundColor = "green";
+  hideCard2.style.backgroundColor = "green";
+  hideCard1.style.color = "green";
+  hideCard2.style.color = "green";
+}
+
+const convertDenoms = {
+  A: 13,
+  2: 1,
+  3: 2,
+  4: 3,
+  5: 4,
+  6: 5,
+  7: 6,
+  8: 7,
+  9: 8,
+  10: 9,
+  J: 10,
+  Q: 11,
+  K: 12,
+};
+
+function compareHands() {
+  // console.log(PLAYER1.hand);
+  // console.log(PLAYER1.hand[0].value);
+  // console.log(PLAYER1.hand[1].value);
+  // console.log(PLAYER2.hand);
+  // console.log(PLAYER2.hand[0].value);
+  // console.log(typeof PLAYER2.hand[1].value);
+
+  // console.log(convertDenoms[PLAYER2.hand[0].value]);
+
+  // console.log("10" in convertDenoms);
+
+  revealVillainCards();
+  let PLAYER1VALUES = Math.max(
+    convertDenoms[PLAYER1.hand[0].value],
+    convertDenoms[PLAYER1.hand[1].value]
+  );
+  let PLAYER2VALUES = Math.max(
+    convertDenoms[PLAYER2.hand[0].value],
+    convertDenoms[PLAYER2.hand[1].value]
+  );
+  console.log(PLAYER1VALUES);
+  console.log(PLAYER2VALUES);
+
+  if (PLAYER1VALUES > PLAYER2VALUES) {
+    PLAYER1.stack += POT;
+  } else if (PLAYER2VALUES < PLAYER2VALUES) {
+    PLAYER2.stack += POT;
+  } else {
+    PLAYER1.stack += POT / 2;
+    PLAYER2.stack += POT / 2;
+  }
 }
 
 // function playerAction(action, playerName, amount) {
