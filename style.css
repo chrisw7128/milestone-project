@@ -190,3 +190,114 @@ h2 {
   background-color: yellow;
 }
 
+
+div.bar {
+  background-color: springgreen;
+  height: 200px;
+  width: 200px;
+  border: 5px solid #000000;
+  float: left;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.barParent {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  float: center;
+}
+
+table, 
+th, 
+td {
+  border: 1px solid black;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 25px;
+  
+}
+
+th {
+  background-color:cadetblue
+}
+
+td {
+  padding: 5px;
+  font-weight: bold;
+  font-size: 50px;
+  background-color:lavender
+}
+
+.table-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+body {
+  background-color:darksalmon
+}
+
+button {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: lavenderblush;
+  padding: 5px;
+  border-radius: 45px;
+  border-color: black;
+  font-size: 16px;
+  height: 70px;
+  width: 250px;
+  
+}
+
+#playBtn {
+  font-size: 60px;
+  background-color:rgb(50, 199, 50);
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  height: 85px;
+  width: 225px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#increaseBtn {
+  background-color:darkkhaki;
+}
+
+#decreaseBtn {
+  background-color:lightcoral
+}
+
+#cashOutBtn {
+  background-color:darkgray;
+}
+
+hr#line1 {
+    border: 40px solid grey;
+    border-radius: 5px;
+}
+
+.titles {
+  text-align: center;
+  font-size: 75px;
+  padding: 5px;
+  margin: 5px;
+}
