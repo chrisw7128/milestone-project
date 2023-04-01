@@ -60,6 +60,7 @@
 
 #card1, #card2, #card3, #card4, #card5 {
   display: none;
+  background-color: white;
 }
 
 .bet {
@@ -78,3 +79,91 @@
   color: green;
   background-color: green;
 }
+
+button {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: lavenderblush;
+  padding: 5px;
+  border-radius: 45px;
+  border-color: black;
+  font-size: 16px;
+  height: 70px;
+  width: 250px;
+  
+}
+
+body {
+  background-color:darksalmon
+}
+
+#player2first, #player2second {
+  background-color: white;
+}
+
+table, 
+th, 
+td {
+    border: 1px solid black;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+th {
+    background-color:cadetblue
+}
+
+td {
+    padding: 5px;
+    font-weight: bold;
+    font-size: 50px;
+    background-color:lavender
+}
+
+.table-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+#player1first, #player1second {
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+#player1first, #player2second {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#player1first, #player1second {
+  display: inline-block;
+  position: relative;
+  left: 45%;
+  transform: translateX(-50%);
+}
+
+#player2first, #player2second {
+  display: inline-block;
+  position: relative;
+  left: 45%;
+  transform: translateX(-50%);
+}
+
+.bet {
+  text-align: center;
+}
+
+#actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
