@@ -1,3 +1,68 @@
+NEW README:
+
+# Casino Game
+
+Welcome to the Casino Game, a virtual casino experience where you can try your luck at two exciting games: Slot Machine and Poker. Test your skills and see if you can beat the odds!
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Slot Machine](#slot-machine)
+- [Poker](#poker)
+- [Bug Report](#bug-report)
+- [Technologies Used](#technologies-used)
+
+## Introduction
+
+In this casino game, you have the opportunity to enjoy two classic casino games: Slot Machine and Poker. Each game offers a unique and entertaining experience.
+
+## Slot Machine
+
+### Overview
+
+- Game Format: Player vs. Machine
+- Winning Conditions: Double the amount of initial chips
+
+### How to Play
+
+- Click the "Add Credits" button to add credits for the slot machine.
+- Adjust your bet size per spin using the provided controls.
+- Spin the reels and try to match the images on the slot machine.
+- Win by getting 2/3 of the images in the bar to be the same image.
+- Earn a bonus by getting all 3 images to match.
+- This slot machine is designed to be beatable, and the payoffs are generous.
+
+## Poker
+
+### Overview
+
+- Game Format: Player vs. Computer (Limit Texas Hold'em)
+- Winning Conditions: Get all of your opponent's chips
+
+### How to Play
+
+- Play a hand of Limit Texas Hold'em poker against the computer.
+- Choose from actions like Raise, Call, or Fold for your dealt hand.
+- The computer will respond with a call or fold.
+- If the computer calls, the flop is dealt, and the winner is determined by the highest hole card(s).
+- Click "Next Hand" to continue playing and aim to win all your opponent's chips.
+
+**Note**: This poker game has some limitations compared to a real poker game, such as simplified betting and no additional betting rounds beyond the flop.
+
+## Bug Report
+
+One known bug in the poker game is that the pot is not calculated correctly, causing the starting stacks to decrease over time as the game progresses. Please be aware of this issue while playing.
+
+## Technologies Used
+
+This casino game was built using raw HTML, CSS, and JavaScript, providing an authentic gaming experience right in your web browser.
+
+Feel free to explore the game and enjoy the excitement of the casino from the comfort of your device. Good luck and have fun!
+
+---
+
+OLD README:
+
 # milestone-project
 
 This game is a casino game.
