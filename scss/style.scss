@@ -1,0 +1,153 @@
+// Define SCSS variables
+$card-width: 105px;
+$card-height: 150px;
+$card-border-radius: 5px;
+$card-border-color: #ccc;
+$card-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+$card-margin: 5px;
+$card-font-size: 57px;
+
+$card-colors: (
+  spades: black,
+  hearts: red,
+  clubs: green,
+  diamonds: blue
+);
+
+$button-bg-color: lavenderblush;
+$button-font-size: 16px;
+$button-height: 70px;
+$button-width: 250px;
+
+$bg-color: darksalmon;
+
+$raise-button-bg-color: lightcoral;
+$call-button-bg-color: darkkhaki;
+$fold-button-bg-color: darkgray;
+$next-hand-button-bg-color: yellow;
+
+$bar-bg-color: springgreen;
+$bar-size: 200px;
+
+$text-color: grey;
+$title-font-size: 75px;
+
+@mixin card($color) {
+  color: $color;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+}
+
+@function rotate($deg) {
+  @return rotate(#{$deg});
+}
+
+@import 'variables';
+@import 'mixins';
+
+@error "This is an error message.";
+
+.card {
+  position: relative;
+  display: inline-block;
+  width: $card-width;
+  height: $card-height;
+  border-radius: $card-border-radius;
+  border: 1px solid $card-border-color;
+  box-shadow: $card-box-shadow;
+  margin: $card-margin;
+
+  &.spades {
+    @include card(map-get($card-colors, spades));
+  }
+
+  &.hearts {
+    @include card(map-get($card-colors, hearts));
+  }
+
+  &.clubs {
+    @include card(map-get($card-colors, clubs));
+  }
+
+  &.diamonds {
+    @include card(map-get($card-colors, diamonds));
+  }
+
+  .card-value-suit {
+    display: inline-block;
+    position: absolute;
+
+    &.top {
+      top: $card-margin;
+      left: $card-margin;
+      font-size: $card-font-size;
+    }
+
+    &.bot {
+      transform: rotate(180deg);
+      bottom: $card-margin;
+      right: $card-margin;
+      font-size: $card-font-size;
+    }
+  }
+}
+
+body {
+  background-color: $bg-color;
+}
+
+#actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #raiseButton {
+    background-color: $raise-button-bg-color;
+  }
+
+  #callButton {
+    background-color: $call-button-bg-color;
+  }
+
+  #foldButton {
+    background-color: $fold-button-bg-color;
+  }
+
+  #nextHandButton {
+    background-color: $next-hand-button-bg-color;
+  }
+}
+
+div.bar {
+  background-color: $bar-bg-color;
+  height: $bar-size;
+  width: $bar-size;
+  border: 5px solid $card-border-color;
+  float: left;
+  margin: $card-margin;
+
+  .barParent {
+    @include center;
+  }
+
+  img {
+    height: $bar-size;
+    width: $bar-size;
+    float: center;
+  }
+}
+
+hr#line1 {
+  border: 80px solid $text-color;
+  border-radius: $card-border-radius;
+}
+
+.titles {
+  text-align: center;
+  font-size: $title-font-size;
+  padding: $card-margin;
+  margin: $card-margin;
+}
